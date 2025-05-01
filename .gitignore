@@ -1,0 +1,8 @@
+Gb_eth_switch.cache/
+Gb_eth_switch.hw/
+Gb_eth_switch.ip_user_files/
+Gb_eth_switch.sim/*
+*.jou
+*.log
+*.str
+Gb_eth_switch.runs/

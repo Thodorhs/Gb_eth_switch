@@ -19,7 +19,7 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-import eth_switch_pkg
+import eth_switch_pkg::*;
 module eth_switch(
     input   clk,
     input   reset_n,
@@ -55,7 +55,7 @@ module eth_switch(
                 .mac_ack(mac_ack[j]),
                 .out_port_from_mac(out_port_from_mac[j]),
                 .mac_req(mac_req[j]),
-                .mac_address[j]
+                .mac_address(mac_address[j])
             );   
         end
     endgenerate

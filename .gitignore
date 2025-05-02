@@ -1,8 +1,43 @@
-Gb_eth_switch.cache/
-Gb_eth_switch.hw/
-Gb_eth_switch.ip_user_files/
-Gb_eth_switch.sim/*
-*.jou
+# Ignore Vivado simulation and build directories
 *.log
+*.jou
+*.pb
 *.str
-Gb_eth_switch.runs/
+*.wdb
+*.svtype
+*.type
+*.mem
+*.rtti
+*.dbg
+*.reloc
+*.rlx
+*.sdb
+*.xdbg
+*.ini
+*.db
+
+# Ignore generated simulation scripts and project files
+*.sh
+*.prj
+*.tcl
+*.xpr
+
+# Ignore simulation outputs
+*.o
+*.out
+
+# Ignore xsim directory
+eth_switch/Gb_eth_switch.sim/
+
+# Ignore synthesis and implementation results
+*.runs/
+*.cache/
+*.hw/
+*.ip_user_files/
+*.sim/
+*.tmp/
+*.webtalk/
+
+# Ignore Vivado auto-generated directories
+**/xsim.dir/
+**/xsim.ini

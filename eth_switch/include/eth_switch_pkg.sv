@@ -21,6 +21,7 @@
 
 
 package eth_switch_pkg;
+localparam FIFO_DEPTH = 2048;
 localparam NUM_OF_PORTS = 4;
 localparam RXTX_DATA_SIZE = 32;
 localparam RXTXCTRL_BITS_SIZE = 4;

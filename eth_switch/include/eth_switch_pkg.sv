@@ -21,6 +21,7 @@
 
 
 package eth_switch_pkg;
+localparam PACKET_LEN = 512;
 localparam FIFO_DEPTH = 2048;
 localparam NUM_OF_PORTS = 4;
 localparam RXTX_DATA_SIZE = 32;
@@ -29,4 +30,13 @@ localparam DATA_IN_SIZE = 8;
 localparam SRC_MAC_LEN = 50;
 localparam DST_MAC_LEN = 50;
 localparam FULL_MAC_LEN = SRC_MAC_LEN + DST_MAC_LEN;
-endpackage;
+
+typedef enum logic [2:0] {
+        IDLE = 0,
+        FCS_CHECK,
+        CHECK_ERROR,
+        PARSE_ADDR,
+        DELETE_PACKET
+    } GLOBAL_STATE_t;
+    
+endpackage

@@ -34,10 +34,14 @@ module InputUnit(
     );
     
     logic buffer_write;
-    logic fetch_en;
+    logic fetch_en = 0;
     logic buffer_full;
     logic buffer_empty;
     logic [DATA_IN_SIZE-1:0] buffer_odata;
+    logic SOF;
+    logic EOF;
+    logic fcs_error_flag;
+    
     
      sfifo #(DATA_IN_SIZE,FIFO_DEPTH) INPUT_BUFFER 
     (
@@ -47,9 +51,44 @@ module InputUnit(
       .i_fifo_read(fetch_en),
       .i_fifo_write_data(in_data),
       .o_fifo_full(buffer_full),
-      .o_fifo_read_data(buffer_odata),  
+      .o_fifo_read_data(buffer_odata),
       .o_fifo_empty(buffer_empty)
     );
+    
+    inputFSM inFSM(
+      .clk(clk),
+      .reset_n(reset_n),
+      .fetch_en(fetch_en),
+      .SOF(SOF),
+      .EOF(EOF),
+      .fcs_error(fcs_error_flag)
+    );
+    
+    SOF_EOF_ctrl SOF_EOF_ctrl_inst(
+      .clk(clk),
+      .reset_n(reset_n),
+      .rx_ctrl(rx_ctrl),
+      .SOF(SOF),
+      .EOF(EOF)
+    );
+    
+    fcs_check_parallel fcs_inst (
+        .clk(clk),
+        .reset(~reset_n), // Assuming reset_n is active-low in SV, and VHDL uses active-high
+        .start_of_frame(SOF), 
+        .fcs_rx_ctrl(rx_ctrl),   
+        .data_in(in_data[7:0]),
+        .fcs_error(fcs_error_flag)
+    );
+    
+    always_ff @(posedge clk, negedge reset_n) begin
+        if(~reset_n)
+            buffer_write <= 0;
+        else if (rx_ctrl)
+            buffer_write <= 1;
+        else
+            buffer_write <= 0; 
+    end
     
     
 endmodule

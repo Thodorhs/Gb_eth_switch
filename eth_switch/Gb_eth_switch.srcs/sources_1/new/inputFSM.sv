@@ -37,8 +37,7 @@ module inputFSM(
          next_state = IDLE;
          unique case(curr_state)
                 IDLE : next_state = SOF == 1 ? FCS_CHECK : IDLE;
-                FCS_CHECK : next_state = EOF == 1 ? CHECK_ERROR : FCS_CHECK;
-                CHECK_ERROR : next_state = fcs_error == 1 ? DELETE_PACKET : PARSE_ADDR;
+                FCS_CHECK:   next_state = (EOF == 1) ? (fcs_error == 0 ? PARSE_ADDR : DELETE_PACKET) : FCS_CHECK;
                 PARSE_ADDR : next_state = IDLE;
                 DELETE_PACKET : next_state = IDLE;
                 default : ;
@@ -60,7 +59,7 @@ module inputFSM(
                     
                 end
                 DELETE_PACKET : begin 
-                  
+                 
                 end
          endcase
     end

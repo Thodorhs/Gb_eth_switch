@@ -12,15 +12,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="450.948 ns"></ZoomEndTime>
-      <Cursor1Time time="89.565 ns"></Cursor1Time>
+      <ZoomStartTime time="656.750 ns"></ZoomStartTime>
+      <ZoomEndTime time="787.451 ns"></ZoomEndTime>
+      <Cursor1Time time="720.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="190"></NameColumnWidth>
-      <ValueColumnWidth column_width="80"></ValueColumnWidth>
+      <ValueColumnWidth column_width="72"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="24" />
+   <WVObjectSize size="29" />
    <wvobject type="logic" fp_name="/Input_tb/clk">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -72,7 +72,6 @@
    <wvobject type="array" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /INPUT_BUFFER/mem">
       <obj_property name="ElementShortName">mem[-1:0][7:0]</obj_property>
       <obj_property name="ObjectShortName">mem[-1:0][7:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
    </wvobject>
    <wvobject type="logic" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /inFSM/SOF">
       <obj_property name="ElementShortName">SOF</obj_property>
@@ -117,5 +116,25 @@
    <wvobject type="logic" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /fcs_inst/fcs_error">
       <obj_property name="ElementShortName">fcs_error</obj_property>
       <obj_property name="ObjectShortName">fcs_error</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /fcs_inst/data">
+      <obj_property name="ElementShortName">data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">data[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /fcs_inst/regFileOut">
+      <obj_property name="ElementShortName">regFileOut[31:0]</obj_property>
+      <obj_property name="ObjectShortName">regFileOut[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /fcs_inst/compl_en">
+      <obj_property name="ElementShortName">compl_en</obj_property>
+      <obj_property name="ObjectShortName">compl_en</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /fcs_inst/compute_crc">
+      <obj_property name="ElementShortName">compute_crc</obj_property>
+      <obj_property name="ObjectShortName">compute_crc</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /fcs_inst/byte_count">
+      <obj_property name="ElementShortName">byte_count[7:0]</obj_property>
+      <obj_property name="ObjectShortName">byte_count[7:0]</obj_property>
    </wvobject>
 </wave_config>

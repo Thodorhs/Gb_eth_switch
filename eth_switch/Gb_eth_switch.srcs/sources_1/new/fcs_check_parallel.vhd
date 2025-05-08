@@ -61,16 +61,18 @@ BEGIN
 	end process;
 
 	process(reset, clk)
-	begin
-		if(reset = '1') then
-			byte_count <= (others => '0');
-		elsif(rising_edge(clk)) then
-		    byte_count <= byte_count + 1;
-			if fcs_rx_ctrl = '0' then
-			    byte_count <= (others => '0');
+    begin
+        if (reset = '1') then
+            byte_count <= (others => '0');
+        elsif rising_edge(clk) then
+            if (fcs_rx_ctrl = '1') then 
+                byte_count <= byte_count + 1;
+            elsif (fcs_rx_ctrl = '0') then
+                byte_count <= (others => '0');
             end if;
-		end if;
-	end process;
+        end if;
+    end process;
+
 
 	-- Control signals
 	compute_crc <= '1' when fcs_rx_ctrl = '1' else '0';
@@ -83,7 +85,7 @@ BEGIN
 	            '1' when fcs_rx_ctrl = '0' else '1';
 	
 	-- Handle first 32 bits of frame with complementing
-	compl_en <= '1' when (byte_count < 4) or (fcs_rx_ctrl = '0') else '0';
+	compl_en <= '1' when (byte_count <= 4) or (fcs_rx_ctrl = '0') else '0';
 	data <= not data_in when compl_en = '1' else data_in;
 	
 	-- CRC polynomial implementation

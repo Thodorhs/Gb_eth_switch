@@ -42,6 +42,13 @@ module InputUnit(
     logic EOF;
     logic fcs_error_flag;
     
+    // address buffer
+    logic addr_req=0;
+    logic addr_ack=0;
+    logic [ADDR_LEN-1:0] src_addr='0;
+    logic [ADDR_LEN-1:0] dst_addr='0;
+    logic [ADDR_LEN-1:0] o_src_addr;
+    logic [ADDR_LEN-1:0] o_dst_addr;
     
      sfifo #(DATA_IN_SIZE,FIFO_DEPTH) INPUT_BUFFER 
     (
@@ -55,13 +62,31 @@ module InputUnit(
       .o_fifo_empty(buffer_empty)
     );
     
+    addr_buffer addr_buffer_handle(
+        .clk(clk),
+        .reset_n(reset_n),
+        .data_in(in_data),
+        .rx_ctrl(rx_ctrl),
+        .addr_req(addr_req),
+        .addr_ack(addr_ack),
+        .src_addr(src_addr),
+        .dst_addr(dst_addr)
+    );
+    
     inputFSM inFSM(
       .clk(clk),
       .reset_n(reset_n),
       .fetch_en(fetch_en),
       .SOF(SOF),
       .EOF(EOF),
-      .fcs_error(fcs_error_flag)
+      .fcs_error(fcs_error_flag),
+      .o_addr_req(addr_req),
+      .i_addr_ack(addr_ack),
+      .i_src_addr(src_addr),
+      .i_dst_addr(dst_addr),
+      .o_src_addr(o_src_addr),
+      .o_dst_addr(o_dst_addr),
+      .o_mac_req(mac_req)
     );
     
     SOF_EOF_ctrl SOF_EOF_ctrl_inst(

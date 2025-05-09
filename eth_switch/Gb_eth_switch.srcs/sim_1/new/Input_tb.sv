@@ -57,11 +57,11 @@ module Input_tb();
         reset_n = 1;
         
         send_packets(goodpacket);
-        send_packets(goodpacket);
-        send_packets(badpacket);
+        //send_packets(goodpacket);
+        //send_packets(badpacket);
         
         // Run for some additional time to observe results
-        #(20*`CLK_PERIOD);
+        #(100*`CLK_PERIOD);
         
         $display("Simulation completed");
         $finish;

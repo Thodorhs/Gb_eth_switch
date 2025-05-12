@@ -41,6 +41,9 @@ module InputUnit(
     logic SOF;
     logic EOF;
     logic fcs_error_flag;
+    logic length_req=0;
+    logic [11:0]length_out = '0;
+    logic length_ack=0;
     
     // address buffer
     logic addr_req=0;
@@ -50,7 +53,7 @@ module InputUnit(
     logic [ADDR_LEN-1:0] o_src_addr;
     logic [ADDR_LEN-1:0] o_dst_addr;
     
-     sfifo #(DATA_IN_SIZE,FIFO_DEPTH) INPUT_BUFFER 
+     sfifo #(DATA_IN_SIZE,$clog2(FIFO_DEPTH)) INPUT_BUFFER 
     (
       .clk(clk),
       .rst_n(reset_n),
@@ -73,6 +76,16 @@ module InputUnit(
         .dst_addr(dst_addr)
     );
     
+    length_count length_counter(
+        .clk(clk),
+        .reset_n(reset_n),
+        .rx_ctrl(rx_ctrl),
+        .EOF(EOF),
+        .length_ack(length_ack),
+        .length_req(length_req),
+        .length_out(length_out)
+    );
+    
     inputFSM inFSM(
       .clk(clk),
       .reset_n(reset_n),
@@ -86,7 +99,10 @@ module InputUnit(
       .i_dst_addr(dst_addr),
       .o_src_addr(o_src_addr),
       .o_dst_addr(o_dst_addr),
-      .o_mac_req(mac_req)
+      .o_mac_req(mac_req),
+      .length_req(length_req),
+      .length_ack(length_ack),
+      .input_length(length_out)
     );
     
     SOF_EOF_ctrl SOF_EOF_ctrl_inst(
@@ -106,14 +122,19 @@ module InputUnit(
         .fcs_error(fcs_error_flag)
     );
     
-    always_ff @(posedge clk, negedge reset_n) begin
-        if(~reset_n)
-            buffer_write <= 0;
-        else if (rx_ctrl)
-            buffer_write <= 1;
-        else
-            buffer_write <= 0; 
-    end
+    logic rx_ctrl_d;
+
+
+always_ff @(posedge clk or negedge reset_n) begin
+    if (!reset_n)
+        rx_ctrl_d <= 0;
+    else
+        rx_ctrl_d <= rx_ctrl;
+end
+
+assign buffer_write = rx_ctrl_d;
+
+
     
     
 endmodule

@@ -40,6 +40,8 @@ typedef enum logic [2:0] {
         FCS_CHECK,
         CHECK_ERROR,
         MAC_LEARN,
+        GET_LENGTH,
+        OUT_SEND,
         PARSE_ADDR,
         DELETE_PACKET
     } GLOBAL_STATE_t;

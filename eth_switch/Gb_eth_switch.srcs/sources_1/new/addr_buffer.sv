@@ -55,7 +55,7 @@ module addr_buffer(
     end
 
 
-    sfifo #(DATA_IN_SIZE,ADDR_BUFFER_DEPTH) ADDR_BUFFER 
+    sfifo #(DATA_IN_SIZE,$clog2(ADDR_BUFFER_DEPTH)) ADDR_BUFFER 
     (
       .clk(clk),
       .rst_n(reset_n),
@@ -75,10 +75,8 @@ module addr_buffer(
             wr_add_counter <= 0;
         end else begin
             if (rx_ctrl) begin
-                if (wr_add_counter >= 7 && wr_add_counter < 19) begin
+                if (wr_add_counter >= 6 && wr_add_counter < 18) begin
                     w_en <= 1;
-                end else if (wr_add_counter == 19) begin
-                    w_en <= 0;
                 end else begin
                     w_en <= 0;
                 end
@@ -104,15 +102,15 @@ module addr_buffer(
                 r_en <= 1;
                 addr_ack <= 0;
                 if (r_counter_en) begin 
-                    if (r_add_counter >= 0 && r_add_counter < ADDR_LEN) begin
+                    if (r_add_counter >= 0 && r_add_counter < 6) begin
                         r_en <= 1;
                         addr_ack <= 0;
-                        tmp_dst[ADDR_LEN-1 - 8*r_add_counter -: 8] <= data_in;
+                        tmp_dst[ADDR_LEN-1 - 8*r_add_counter -: 8] <= buffer_odata;
                         r_add_counter <= r_add_counter + 1;
-                    end else if (r_add_counter >= ADDR_LEN && r_add_counter < FULL_ADDR_LEN) begin
+                    end else if (r_add_counter >= 6 && r_add_counter < 12) begin
                         r_en <= 1;
                         addr_ack <= 0;
-                        tmp_src[ADDR_LEN-1 - 8*r_add_counter -: 8] <= data_in;
+                        tmp_src[ADDR_LEN-1 - 8*(r_add_counter - 6) -: 8] <= buffer_odata;
                         r_add_counter <= r_add_counter + 1;
                     end else begin
                         r_en <= 1;

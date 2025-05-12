@@ -13,14 +13,14 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="242.863 ns"></ZoomEndTime>
-      <Cursor1Time time="0.000 ns"></Cursor1Time>
+      <ZoomEndTime time="847.847 ns"></ZoomEndTime>
+      <Cursor1Time time="900.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="180"></NameColumnWidth>
+      <NameColumnWidth column_width="148"></NameColumnWidth>
       <ValueColumnWidth column_width="66"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="42" />
+   <WVObjectSize size="52" />
    <wvobject type="logic" fp_name="/Input_tb/clk">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -105,17 +105,9 @@
       <obj_property name="ElementShortName">byte_count[7:0]</obj_property>
       <obj_property name="ObjectShortName">byte_count[7:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /addr_buffer_handle/r_en">
-      <obj_property name="ElementShortName">r_en</obj_property>
-      <obj_property name="ObjectShortName">r_en</obj_property>
-   </wvobject>
    <wvobject type="logic" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /addr_buffer_handle/w_en">
       <obj_property name="ElementShortName">w_en</obj_property>
       <obj_property name="ObjectShortName">w_en</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /addr_buffer_handle/buffer_full">
-      <obj_property name="ElementShortName">buffer_full</obj_property>
-      <obj_property name="ObjectShortName">buffer_full</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /addr_buffer_handle/wr_add_counter">
       <obj_property name="ElementShortName">wr_add_counter[11:0]</obj_property>
@@ -188,5 +180,53 @@
    <wvobject type="array" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /addr_buffer_handle/buffer_odata">
       <obj_property name="ElementShortName">buffer_odata[7:0]</obj_property>
       <obj_property name="ObjectShortName">buffer_odata[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /addr_buffer_handle/ADDR_BUFFER/mem">
+      <obj_property name="ElementShortName">mem[15:0][7:0]</obj_property>
+      <obj_property name="ObjectShortName">mem[15:0][7:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /INPUT_BUFFER/mem">
+      <obj_property name="ElementShortName">mem[2047:0][7:0]</obj_property>
+      <obj_property name="ObjectShortName">mem[2047:0][7:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /length_counter/length_req">
+      <obj_property name="ElementShortName">length_req</obj_property>
+      <obj_property name="ObjectShortName">length_req</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /length_counter/EOF">
+      <obj_property name="ElementShortName">EOF</obj_property>
+      <obj_property name="ObjectShortName">EOF</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /length_counter/byte_counter">
+      <obj_property name="ElementShortName">byte_counter[11:0]</obj_property>
+      <obj_property name="ObjectShortName">byte_counter[11:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /length_counter/length_out">
+      <obj_property name="ElementShortName">length_out[11:0]</obj_property>
+      <obj_property name="ObjectShortName">length_out[11:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /length_counter/w_en">
+      <obj_property name="ElementShortName">w_en</obj_property>
+      <obj_property name="ObjectShortName">w_en</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /length_counter/r_en">
+      <obj_property name="ElementShortName">r_en</obj_property>
+      <obj_property name="ObjectShortName">r_en</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /length_counter/EOF_ff">
+      <obj_property name="ElementShortName">EOF_ff</obj_property>
+      <obj_property name="ObjectShortName">EOF_ff</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /inFSM/input_length">
+      <obj_property name="ElementShortName">input_length[11:0]</obj_property>
+      <obj_property name="ObjectShortName">input_length[11:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /length_counter/length_ack">
+      <obj_property name="ElementShortName">length_ack</obj_property>
+      <obj_property name="ObjectShortName">length_ack</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /length_counter/PACKET_LENGTH_FIFO/mem">
+      <obj_property name="ElementShortName">mem[1:0][11:0]</obj_property>
+      <obj_property name="ObjectShortName">mem[1:0][11:0]</obj_property>
    </wvobject>
 </wave_config>

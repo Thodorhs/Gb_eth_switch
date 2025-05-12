@@ -30,16 +30,21 @@ module inputFSM(
     input logic i_addr_ack,
     input logic [ADDR_LEN-1:0] i_src_addr,
     input logic [ADDR_LEN-1:0] i_dst_addr,
+    input logic [11:0] input_length,
+    input logic length_ack,
     output logic fetch_en,
     output logic o_addr_req,
     output logic [ADDR_LEN-1:0] o_src_addr,
     output logic [ADDR_LEN-1:0] o_dst_addr,
-    output logic o_mac_req
+    output logic o_mac_req,
+    output logic length_req
     );
     
     GLOBAL_STATE_t curr_state;
     GLOBAL_STATE_t next_state;
+    logic [11:0]curr_length='0;
     logic activate_mac = 0;
+    logic activate_send = 0;
     
     always_comb begin
          next_state = IDLE;
@@ -47,36 +52,54 @@ module inputFSM(
                 IDLE : next_state = SOF == 1 ? FCS_CHECK : IDLE;
                 FCS_CHECK:   next_state = (EOF == 1) ? (fcs_error == 0 ? PARSE_ADDR : DELETE_PACKET) : FCS_CHECK;
                 PARSE_ADDR : next_state = activate_mac == 1 ? MAC_LEARN : PARSE_ADDR;
-                MAC_LEARN : next_state = IDLE;
+                MAC_LEARN : next_state = GET_LENGTH;
+                GET_LENGTH : next_state = activate_send == 1 ? OUT_SEND: GET_LENGTH;
+                OUT_SEND : next_state = IDLE;
                 DELETE_PACKET : next_state = IDLE;
                 default : ;
          endcase 
     end
     
     always_comb begin
-    activate_mac <= 0;
+    activate_mac = 0;
+    activate_send = 0;
+    fetch_en = 0;
+    o_mac_req = 0;
+    o_src_addr = 0;
+    o_dst_addr = 0;
     case(curr_state)
                 IDLE : begin
-                    fetch_en <= 0;
-                    o_mac_req <= 0;
-                    o_src_addr <= 0;
-                    o_dst_addr <= 0;
-                    activate_mac <= 0;
+                    fetch_en = 0;
+                    o_mac_req = 0;
+                    o_src_addr = 0;
+                    o_dst_addr = 0;
+                    activate_mac = 0;
+                    activate_send = 0;    
                 end
                 FCS_CHECK : begin
                     
                 end
                 PARSE_ADDR : begin
-                    o_addr_req <= 1;
+                    o_addr_req = 1;
                     if (i_addr_ack)
-                        activate_mac <= 1;
+                        activate_mac = 1;
                         
                 end
                 MAC_LEARN : begin
-                    o_src_addr <= i_src_addr;
-                    o_dst_addr <= i_dst_addr;
-                    o_mac_req <= 1;
-                    o_addr_req <= 0;
+                    o_src_addr = i_src_addr;
+                    o_dst_addr = i_dst_addr;
+                    o_mac_req = 1;
+                    o_addr_req = 0;
+                end
+                GET_LENGTH : begin
+                    length_req = 1;
+                    if(length_ack) begin
+                        curr_length = input_length;
+                        activate_send = 1;
+                    end                    
+                end
+                OUT_SEND : begin
+                    length_req = 0;             
                 end
                 DELETE_PACKET : begin //delete packet and metadata from ALL FIFOS!
                     

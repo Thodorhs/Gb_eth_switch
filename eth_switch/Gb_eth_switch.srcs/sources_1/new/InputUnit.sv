@@ -21,16 +21,19 @@
 
 import eth_switch_pkg::*;
 
-module InputUnit(
+module InputUnit#(
+    parameter int PORT_NUM = 0  // Unique ID for this port instance
+)(
     input clk,
     input   reset_n,
     input   [DATA_IN_SIZE-1:0] in_data,
     input   logic rx_ctrl,
     input   logic mac_ack,
-    input   logic out_port_from_mac,
+    input  logic [3:0]d_port_from_mac,
+    output   logic [3:0]s_port_for_mac,
     output  [DATA_IN_SIZE-1:0] out_data,
     output  logic mac_req,
-    output  [FULL_MAC_LEN-1:0] mac_address
+    output  [95:0] mac_address
     );
     
     logic buffer_write;
@@ -50,8 +53,6 @@ module InputUnit(
     logic addr_ack=0;
     logic [ADDR_LEN-1:0] src_addr='0;
     logic [ADDR_LEN-1:0] dst_addr='0;
-    logic [ADDR_LEN-1:0] o_src_addr;
-    logic [ADDR_LEN-1:0] o_dst_addr;
     
      sfifo #(DATA_IN_SIZE,$clog2(FIFO_DEPTH)) INPUT_BUFFER 
     (
@@ -86,7 +87,9 @@ module InputUnit(
         .length_out(length_out)
     );
     
-    inputFSM inFSM(
+    inputFSM #(
+            .PORT_NUM(PORT_NUM)
+        )inFSM(
       .clk(clk),
       .reset_n(reset_n),
       .fetch_en(fetch_en),
@@ -97,11 +100,13 @@ module InputUnit(
       .i_addr_ack(addr_ack),
       .i_src_addr(src_addr),
       .i_dst_addr(dst_addr),
-      .o_src_addr(o_src_addr),
-      .o_dst_addr(o_dst_addr),
+      .d_port_from_mac(d_port_from_mac),
+      .s_port_for_mac(s_port_for_mac),
+      .o_mac_addr(mac_address),
       .o_mac_req(mac_req),
       .length_req(length_req),
       .length_ack(length_ack),
+      .mac_ack(mac_ack),
       .input_length(length_out)
     );
     

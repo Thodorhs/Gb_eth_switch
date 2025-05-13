@@ -3,230 +3,162 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="Input_tb_behav.wdb" id="1">
+      <db_ref path="mac_tb_behav.wdb" id="1">
          <top_modules>
-            <top_module name="Input_tb" />
             <top_module name="eth_switch_pkg" />
             <top_module name="glbl" />
+            <top_module name="mac_tb" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="847.847 ns"></ZoomEndTime>
-      <Cursor1Time time="900.000 ns"></Cursor1Time>
+      <ZoomEndTime time="291.749 ns"></ZoomEndTime>
+      <Cursor1Time time="65.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="148"></NameColumnWidth>
+      <NameColumnWidth column_width="116"></NameColumnWidth>
       <ValueColumnWidth column_width="66"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="52" />
-   <wvobject type="logic" fp_name="/Input_tb/clk">
+   <WVObjectSize size="35" />
+   <wvobject type="logic" fp_name="/mac_tb/dut/clk">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/Input_tb/rx_data_tb">
-      <obj_property name="ElementShortName">rx_data_tb[31:0]</obj_property>
-      <obj_property name="ObjectShortName">rx_data_tb[31:0]</obj_property>
+   <wvobject type="logic" fp_name="/mac_tb/dut/reset">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /in_data">
-      <obj_property name="ElementShortName">in_data[7:0]</obj_property>
-      <obj_property name="ObjectShortName">in_data[7:0]</obj_property>
+   <wvobject type="array" fp_name="/mac_tb/dut/addresses_1">
+      <obj_property name="ElementShortName">addresses_1[95:0]</obj_property>
+      <obj_property name="ObjectShortName">addresses_1[95:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /rx_ctrl">
-      <obj_property name="ElementShortName">rx_ctrl</obj_property>
-      <obj_property name="ObjectShortName">rx_ctrl</obj_property>
+   <wvobject type="array" fp_name="/mac_tb/dut/s_port_1">
+      <obj_property name="ElementShortName">s_port_1[3:0]</obj_property>
+      <obj_property name="ObjectShortName">s_port_1[3:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /buffer_write">
-      <obj_property name="ElementShortName">buffer_write</obj_property>
-      <obj_property name="ObjectShortName">buffer_write</obj_property>
+   <wvobject type="logic" fp_name="/mac_tb/dut/req_1">
+      <obj_property name="ElementShortName">req_1</obj_property>
+      <obj_property name="ObjectShortName">req_1</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /SOF_EOF_ctrl_inst/rx_ctrl">
-      <obj_property name="ElementShortName">rx_ctrl</obj_property>
-      <obj_property name="ObjectShortName">rx_ctrl</obj_property>
+   <wvobject type="logic" fp_name="/mac_tb/dut/ack_1">
+      <obj_property name="ElementShortName">ack_1</obj_property>
+      <obj_property name="ObjectShortName">ack_1</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /SOF_EOF_ctrl_inst/rx_ctrl_ff">
-      <obj_property name="ElementShortName">rx_ctrl_ff</obj_property>
-      <obj_property name="ObjectShortName">rx_ctrl_ff</obj_property>
+   <wvobject type="array" fp_name="/mac_tb/dut/d_port_1">
+      <obj_property name="ElementShortName">d_port_1[3:0]</obj_property>
+      <obj_property name="ObjectShortName">d_port_1[3:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /inFSM/fcs_error">
-      <obj_property name="ElementShortName">fcs_error</obj_property>
-      <obj_property name="ObjectShortName">fcs_error</obj_property>
+   <wvobject type="array" fp_name="/mac_tb/dut/addresses_2">
+      <obj_property name="ElementShortName">addresses_2[95:0]</obj_property>
+      <obj_property name="ObjectShortName">addresses_2[95:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /inFSM/fetch_en">
-      <obj_property name="ElementShortName">fetch_en</obj_property>
-      <obj_property name="ObjectShortName">fetch_en</obj_property>
+   <wvobject type="array" fp_name="/mac_tb/dut/s_port_2">
+      <obj_property name="ElementShortName">s_port_2[3:0]</obj_property>
+      <obj_property name="ObjectShortName">s_port_2[3:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /inFSM/curr_state">
-      <obj_property name="ElementShortName">curr_state[2:0]</obj_property>
-      <obj_property name="ObjectShortName">curr_state[2:0]</obj_property>
+   <wvobject type="logic" fp_name="/mac_tb/dut/req_2">
+      <obj_property name="ElementShortName">req_2</obj_property>
+      <obj_property name="ObjectShortName">req_2</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /inFSM/next_state">
-      <obj_property name="ElementShortName">next_state[2:0]</obj_property>
-      <obj_property name="ObjectShortName">next_state[2:0]</obj_property>
+   <wvobject type="logic" fp_name="/mac_tb/dut/ack_2">
+      <obj_property name="ElementShortName">ack_2</obj_property>
+      <obj_property name="ObjectShortName">ack_2</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /INPUT_BUFFER/i_fifo_write_data">
-      <obj_property name="ElementShortName">i_fifo_write_data[7:0]</obj_property>
-      <obj_property name="ObjectShortName">i_fifo_write_data[7:0]</obj_property>
+   <wvobject type="array" fp_name="/mac_tb/dut/d_port_2">
+      <obj_property name="ElementShortName">d_port_2[3:0]</obj_property>
+      <obj_property name="ObjectShortName">d_port_2[3:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /fcs_inst/start_of_frame">
-      <obj_property name="ElementShortName">start_of_frame</obj_property>
-      <obj_property name="ObjectShortName">start_of_frame</obj_property>
+   <wvobject type="array" fp_name="/mac_tb/dut/addresses_3">
+      <obj_property name="ElementShortName">addresses_3[95:0]</obj_property>
+      <obj_property name="ObjectShortName">addresses_3[95:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /fcs_inst/fcs_rx_ctrl">
-      <obj_property name="ElementShortName">fcs_rx_ctrl</obj_property>
-      <obj_property name="ObjectShortName">fcs_rx_ctrl</obj_property>
+   <wvobject type="array" fp_name="/mac_tb/dut/s_port_3">
+      <obj_property name="ElementShortName">s_port_3[3:0]</obj_property>
+      <obj_property name="ObjectShortName">s_port_3[3:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /fcs_inst/data_in">
-      <obj_property name="ElementShortName">data_in[7:0]</obj_property>
-      <obj_property name="ObjectShortName">data_in[7:0]</obj_property>
+   <wvobject type="logic" fp_name="/mac_tb/dut/req_3">
+      <obj_property name="ElementShortName">req_3</obj_property>
+      <obj_property name="ObjectShortName">req_3</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /fcs_inst/fcs_error">
-      <obj_property name="ElementShortName">fcs_error</obj_property>
-      <obj_property name="ObjectShortName">fcs_error</obj_property>
+   <wvobject type="logic" fp_name="/mac_tb/dut/ack_3">
+      <obj_property name="ElementShortName">ack_3</obj_property>
+      <obj_property name="ObjectShortName">ack_3</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /fcs_inst/data">
-      <obj_property name="ElementShortName">data[7:0]</obj_property>
-      <obj_property name="ObjectShortName">data[7:0]</obj_property>
+   <wvobject type="array" fp_name="/mac_tb/dut/d_port_3">
+      <obj_property name="ElementShortName">d_port_3[3:0]</obj_property>
+      <obj_property name="ObjectShortName">d_port_3[3:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /fcs_inst/regFileOut">
-      <obj_property name="ElementShortName">regFileOut[31:0]</obj_property>
-      <obj_property name="ObjectShortName">regFileOut[31:0]</obj_property>
+   <wvobject type="array" fp_name="/mac_tb/dut/addresses_4">
+      <obj_property name="ElementShortName">addresses_4[95:0]</obj_property>
+      <obj_property name="ObjectShortName">addresses_4[95:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /fcs_inst/compl_en">
-      <obj_property name="ElementShortName">compl_en</obj_property>
-      <obj_property name="ObjectShortName">compl_en</obj_property>
+   <wvobject type="array" fp_name="/mac_tb/dut/s_port_4">
+      <obj_property name="ElementShortName">s_port_4[3:0]</obj_property>
+      <obj_property name="ObjectShortName">s_port_4[3:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /fcs_inst/compute_crc">
-      <obj_property name="ElementShortName">compute_crc</obj_property>
-      <obj_property name="ObjectShortName">compute_crc</obj_property>
+   <wvobject type="logic" fp_name="/mac_tb/dut/req_4">
+      <obj_property name="ElementShortName">req_4</obj_property>
+      <obj_property name="ObjectShortName">req_4</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /fcs_inst/byte_count">
-      <obj_property name="ElementShortName">byte_count[7:0]</obj_property>
-      <obj_property name="ObjectShortName">byte_count[7:0]</obj_property>
+   <wvobject type="logic" fp_name="/mac_tb/dut/ack_4">
+      <obj_property name="ElementShortName">ack_4</obj_property>
+      <obj_property name="ObjectShortName">ack_4</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /addr_buffer_handle/w_en">
-      <obj_property name="ElementShortName">w_en</obj_property>
-      <obj_property name="ObjectShortName">w_en</obj_property>
+   <wvobject type="array" fp_name="/mac_tb/dut/d_port_4">
+      <obj_property name="ElementShortName">d_port_4[3:0]</obj_property>
+      <obj_property name="ObjectShortName">d_port_4[3:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /addr_buffer_handle/wr_add_counter">
-      <obj_property name="ElementShortName">wr_add_counter[11:0]</obj_property>
-      <obj_property name="ObjectShortName">wr_add_counter[11:0]</obj_property>
+   <wvobject type="array" fp_name="/mac_tb/dut/ram_addr">
+      <obj_property name="ElementShortName">ram_addr[12:0]</obj_property>
+      <obj_property name="ObjectShortName">ram_addr[12:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /addr_buffer_handle/data_in">
-      <obj_property name="ElementShortName">data_in[7:0]</obj_property>
-      <obj_property name="ObjectShortName">data_in[7:0]</obj_property>
+   <wvobject type="array" fp_name="/mac_tb/dut/ram_din">
+      <obj_property name="ElementShortName">ram_din[51:0]</obj_property>
+      <obj_property name="ObjectShortName">ram_din[51:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /addr_buffer_handle/src_addr">
-      <obj_property name="ElementShortName">src_addr[47:0]</obj_property>
-      <obj_property name="ObjectShortName">src_addr[47:0]</obj_property>
+   <wvobject type="logic" fp_name="/mac_tb/dut/ram_we">
+      <obj_property name="ElementShortName">ram_we</obj_property>
+      <obj_property name="ObjectShortName">ram_we</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /addr_buffer_handle/dst_addr">
-      <obj_property name="ElementShortName">dst_addr[47:0]</obj_property>
-      <obj_property name="ObjectShortName">dst_addr[47:0]</obj_property>
+   <wvobject type="array" fp_name="/mac_tb/dut/ram_dout">
+      <obj_property name="ElementShortName">ram_dout[51:0]</obj_property>
+      <obj_property name="ObjectShortName">ram_dout[51:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /inFSM/i_addr_ack">
-      <obj_property name="ElementShortName">i_addr_ack</obj_property>
-      <obj_property name="ObjectShortName">i_addr_ack</obj_property>
+   <wvobject type="array" fp_name="/mac_tb/dut/current_port">
+      <obj_property name="ElementShortName">current_port[1:0]</obj_property>
+      <obj_property name="ObjectShortName">current_port[1:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /inFSM/i_src_addr">
-      <obj_property name="ElementShortName">i_src_addr[47:0]</obj_property>
-      <obj_property name="ObjectShortName">i_src_addr[47:0]</obj_property>
+   <wvobject type="array" fp_name="/mac_tb/dut/hashed_index_src">
+      <obj_property name="ElementShortName">hashed_index_src[12:0]</obj_property>
+      <obj_property name="ObjectShortName">hashed_index_src[12:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /inFSM/i_dst_addr">
-      <obj_property name="ElementShortName">i_dst_addr[47:0]</obj_property>
-      <obj_property name="ObjectShortName">i_dst_addr[47:0]</obj_property>
+   <wvobject type="array" fp_name="/mac_tb/dut/hashed_index_dst">
+      <obj_property name="ElementShortName">hashed_index_dst[12:0]</obj_property>
+      <obj_property name="ObjectShortName">hashed_index_dst[12:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /inFSM/o_addr_req">
-      <obj_property name="ElementShortName">o_addr_req</obj_property>
-      <obj_property name="ObjectShortName">o_addr_req</obj_property>
+   <wvobject type="logic" fp_name="/mac_tb/dut/mac_match">
+      <obj_property name="ElementShortName">mac_match</obj_property>
+      <obj_property name="ObjectShortName">mac_match</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /inFSM/o_mac_req">
-      <obj_property name="ElementShortName">o_mac_req</obj_property>
-      <obj_property name="ObjectShortName">o_mac_req</obj_property>
+   <wvobject type="array" fp_name="/mac_tb/dut/current_state">
+      <obj_property name="ElementShortName">current_state[3:0]</obj_property>
+      <obj_property name="ObjectShortName">current_state[3:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /inFSM/activate_mac">
-      <obj_property name="ElementShortName">activate_mac</obj_property>
-      <obj_property name="ObjectShortName">activate_mac</obj_property>
+   <wvobject type="array" fp_name="/mac_tb/dut/next_state">
+      <obj_property name="ElementShortName">next_state[3:0]</obj_property>
+      <obj_property name="ObjectShortName">next_state[3:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /addr_buffer_handle/r_add_counter">
-      <obj_property name="ElementShortName">r_add_counter[11:0]</obj_property>
-      <obj_property name="ObjectShortName">r_add_counter[11:0]</obj_property>
+   <wvobject type="array" fp_name="/mac_tb/dut/src_mac">
+      <obj_property name="ElementShortName">src_mac[47:0]</obj_property>
+      <obj_property name="ObjectShortName">src_mac[47:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /addr_buffer_handle/addr_req">
-      <obj_property name="ElementShortName">addr_req</obj_property>
-      <obj_property name="ObjectShortName">addr_req</obj_property>
+   <wvobject type="array" fp_name="/mac_tb/dut/dest_mac">
+      <obj_property name="ElementShortName">dest_mac[47:0]</obj_property>
+      <obj_property name="ObjectShortName">dest_mac[47:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /addr_buffer_handle/r_en">
-      <obj_property name="ElementShortName">r_en</obj_property>
-      <obj_property name="ObjectShortName">r_en</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /addr_buffer_handle/tmp_src">
-      <obj_property name="ElementShortName">tmp_src[47:0]</obj_property>
-      <obj_property name="ObjectShortName">tmp_src[47:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /addr_buffer_handle/tmp_dst">
-      <obj_property name="ElementShortName">tmp_dst[47:0]</obj_property>
-      <obj_property name="ObjectShortName">tmp_dst[47:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /addr_buffer_handle/ADDR_BUFFER/i_fifo_write_data">
-      <obj_property name="ElementShortName">i_fifo_write_data[7:0]</obj_property>
-      <obj_property name="ObjectShortName">i_fifo_write_data[7:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /addr_buffer_handle/ADDR_BUFFER/o_fifo_read_data">
-      <obj_property name="ElementShortName">o_fifo_read_data[7:0]</obj_property>
-      <obj_property name="ObjectShortName">o_fifo_read_data[7:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /addr_buffer_handle/buffer_odata">
-      <obj_property name="ElementShortName">buffer_odata[7:0]</obj_property>
-      <obj_property name="ObjectShortName">buffer_odata[7:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /addr_buffer_handle/ADDR_BUFFER/mem">
-      <obj_property name="ElementShortName">mem[15:0][7:0]</obj_property>
-      <obj_property name="ObjectShortName">mem[15:0][7:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /INPUT_BUFFER/mem">
-      <obj_property name="ElementShortName">mem[2047:0][7:0]</obj_property>
-      <obj_property name="ObjectShortName">mem[2047:0][7:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /length_counter/length_req">
-      <obj_property name="ElementShortName">length_req</obj_property>
-      <obj_property name="ObjectShortName">length_req</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /length_counter/EOF">
-      <obj_property name="ElementShortName">EOF</obj_property>
-      <obj_property name="ObjectShortName">EOF</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /length_counter/byte_counter">
-      <obj_property name="ElementShortName">byte_counter[11:0]</obj_property>
-      <obj_property name="ObjectShortName">byte_counter[11:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /length_counter/length_out">
-      <obj_property name="ElementShortName">length_out[11:0]</obj_property>
-      <obj_property name="ObjectShortName">length_out[11:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /length_counter/w_en">
-      <obj_property name="ElementShortName">w_en</obj_property>
-      <obj_property name="ObjectShortName">w_en</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /length_counter/r_en">
-      <obj_property name="ElementShortName">r_en</obj_property>
-      <obj_property name="ObjectShortName">r_en</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /length_counter/EOF_ff">
-      <obj_property name="ElementShortName">EOF_ff</obj_property>
-      <obj_property name="ObjectShortName">EOF_ff</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /inFSM/input_length">
-      <obj_property name="ElementShortName">input_length[11:0]</obj_property>
-      <obj_property name="ObjectShortName">input_length[11:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /length_counter/length_ack">
-      <obj_property name="ElementShortName">length_ack</obj_property>
-      <obj_property name="ObjectShortName">length_ack</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/Input_tb/switch/\gen_ports[0].in_inst /length_counter/PACKET_LENGTH_FIFO/mem">
-      <obj_property name="ElementShortName">mem[1:0][11:0]</obj_property>
-      <obj_property name="ObjectShortName">mem[1:0][11:0]</obj_property>
+   <wvobject type="array" fp_name="/mac_tb/dut/src_port">
+      <obj_property name="ElementShortName">src_port[3:0]</obj_property>
+      <obj_property name="ObjectShortName">src_port[3:0]</obj_property>
    </wvobject>
 </wave_config>

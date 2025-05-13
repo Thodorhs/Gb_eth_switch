@@ -35,6 +35,9 @@ localparam SRC_MAC_LEN = 50;
 localparam DST_MAC_LEN = 50;
 localparam FULL_MAC_LEN = SRC_MAC_LEN + DST_MAC_LEN;
 
+localparam TABLE_SIZE = 8000;
+localparam TABLE_ADDR_WIDTH = 13;
+
 typedef enum logic [2:0] {
         IDLE = 0,
         FCS_CHECK,
@@ -46,4 +49,21 @@ typedef enum logic [2:0] {
         DELETE_PACKET
     } GLOBAL_STATE_t;
     
+     typedef enum logic [3:0] {
+        CHECK_P1,
+        CHECK_P2,
+        CHECK_P3,
+        CHECK_P4,
+        HASHING_SRC,
+        HASHING_DEST,
+        TABLE_PROCESSES,
+        COMPARE_MAC,
+        SEND_ACK
+    } state_t;
+
+    
+    typedef struct packed {
+        logic [47:0] mac;
+        logic [3:0] port;
+    } mac_table_entry_t;
 endpackage

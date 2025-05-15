@@ -40,7 +40,7 @@ module InputUnit#(
     output logic [NUM_OF_PORTS-1:0] o_packet_done
     );
     
-   
+    logic [DATA_IN_SIZE-1:0] data_ff;
     logic buffer_write;
     logic fetch_en = 0;
     logic buffer_full;
@@ -66,7 +66,7 @@ module InputUnit#(
       .rst_n(reset_n),
       .i_fifo_write(buffer_write),
       .i_fifo_read(fetch_en),
-      .i_fifo_write_data(in_data),
+      .i_fifo_write_data(data_ff),
       .o_fifo_full(buffer_full),
       .o_fifo_read_data(buffer_odata),
       .o_fifo_empty(buffer_empty)
@@ -75,7 +75,7 @@ module InputUnit#(
     addr_buffer addr_buffer_handle(
         .clk(clk),
         .reset_n(reset_n),
-        .data_in(in_data),
+        .data_in(data_ff),
         .rx_ctrl(rx_ctrl),
         .addr_req(addr_req),
         .addr_ack(addr_ack),
@@ -133,7 +133,7 @@ module InputUnit#(
         .reset(~reset_n), // Assuming reset_n is active-low in SV, and VHDL uses active-high
         .start_of_frame(SOF), 
         .fcs_rx_ctrl(rx_ctrl),   
-        .data_in(in_data[7:0]),
+        .data_in(data_ff[7:0]),
         .fcs_error(fcs_error_flag)
     );
     
@@ -141,10 +141,14 @@ module InputUnit#(
 
 
 always_ff @(posedge clk or negedge reset_n) begin
-    if (!reset_n)
+    if (!reset_n) begin
         rx_ctrl_d <= 0;
-    else
+        data_ff <= '0;
+    end
+    else begin
         rx_ctrl_d <= rx_ctrl;
+        data_ff <= in_data;
+    end
 end
 
 assign buffer_write = rx_ctrl_d;

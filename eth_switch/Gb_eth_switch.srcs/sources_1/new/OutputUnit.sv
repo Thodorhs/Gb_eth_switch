@@ -29,18 +29,23 @@ module OutputUnit
     input   FLIT_t i_flit [NUM_OF_PORTS],
     input   logic  i_cross_request [NUM_OF_PORTS],
     output  logic o_cross_ack [NUM_OF_PORTS],
-    output  P_STATUS o_port_status
+    output  P_STATUS o_port_status,
+    input i_packet_done[NUM_OF_PORTS],
+    output FLIT_t o_flit,
+    output logic o_tx_ctrl
     );
      
     logic switch_ack_ff;
     OutputUnitFSM ofsm (
         .clk(clk),
         .reset_n(reset_n),
-        .i_flit(i_flit[0]),
+        .i_flit(i_flit),
         .i_switch_req(i_cross_request),
         .o_outport_ack(o_cross_ack),
-        .o_port_status(o_port_status)
-        
+        .o_port_status(o_port_status),
+        .i_packet_done(i_packet_done),
+        .o_flit(o_flit),
+        .o_tx_ctrl(o_tx_ctrl)
     );
     
     

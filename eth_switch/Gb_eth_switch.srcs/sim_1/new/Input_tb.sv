@@ -9,7 +9,7 @@ module Input_tb();
     logic [RXTXCTRL_BITS_SIZE-1:0] rx_ctrl_tb;
     logic [RXTX_DATA_SIZE-1:0] tx_data_tb;
     logic [RXTXCTRL_BITS_SIZE-1:0] tx_ctrl_tb;
-    
+    logic [DATA_IN_SIZE-1:0] current_byte;
     always #(`CLK_PERIOD/2) clk = ~clk;
     
     eth_switch switch(
@@ -35,9 +35,10 @@ module Input_tb();
         i = 0;
         while (i < (PACKET_LEN / 8)) begin
             @(posedge clk);
-            rx_data_tb = packet[i*8 +: 8];
+            current_byte = packet[i*8 +: 8];
+            rx_data_tb = {current_byte, current_byte, current_byte, current_byte};
             rx_ctrl_tb = 4'b1111;
-            
+
             i = i + 1;
         end
         // End of packet: reset rx_ctrl_tb to indicate EOF
@@ -61,7 +62,7 @@ module Input_tb();
         //send_packets(badpacket);
         
         // Run for some additional time to observe results
-        #(100*`CLK_PERIOD);
+        #(500*`CLK_PERIOD);
         
         $display("Simulation completed");
         $finish;

@@ -26,11 +26,12 @@ module crossbar
         input rst_n,
         input  sw_bus_t i_r2s,
         input  logic i_switch_req,
-        input  logic  i_out_ack [NUM_OF_PORTS:0],
+        input  logic  i_out_ack [NUM_OF_PORTS],
         input logic [NUM_OF_PORTS-1:0] i_packet_done,
         output logic o_switch_ack,
         output logic  o_out_req[NUM_OF_PORTS:0],
-        output FLIT_t o_switch_data [NUM_OF_PORTS]
+        output FLIT_t o_switch_data [NUM_OF_PORTS],
+        output logic packet_done [NUM_OF_PORTS]
     );
     integer i,j,k,x;
     SW_PORT_STATUS  [NUM_OF_PORTS-1:0] port_status;
@@ -104,7 +105,7 @@ module crossbar
         o_out_req = '{default:0};
         cross_fifo_write = '{default: 0};
         cross_fifo_read = '{default: 0};
-        
+        packet_done = '{default:0};
         for(i=0; i < NUM_OF_PORTS; i++) begin
               if(next_fifo_status[i] == PACKET_FILLING) begin 
                     cross_fifo_write[i] = 1'b1;
@@ -125,6 +126,7 @@ module crossbar
               if(curr_fifo_status[i] == PACKET_SENDING && cross_fifo_empty[i]) begin
                 cross_fifo_read[i] = 0;
                 next_fifo_status[i] = PACKET_EMPTY;
+                packet_done[i] = 1;
               end
        
         end

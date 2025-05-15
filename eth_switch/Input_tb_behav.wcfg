@@ -12,15 +12,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="1,362.784 ns"></ZoomStartTime>
-      <ZoomEndTime time="1,724.704 ns"></ZoomEndTime>
-      <Cursor1Time time="1,596.749 ns"></Cursor1Time>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="668.687 ns"></ZoomEndTime>
+      <Cursor1Time time="5,000.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="221"></NameColumnWidth>
-      <ValueColumnWidth column_width="100"></ValueColumnWidth>
+      <NameColumnWidth column_width="215"></NameColumnWidth>
+      <ValueColumnWidth column_width="58"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="14" />
+   <WVObjectSize size="15" />
    <wvobject fp_name="/Input_tb/switch/\gen_ports[0].in_inst /inFSM/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -52,22 +52,6 @@
       <obj_property name="ObjectShortName">o_target_port[2:0]</obj_property>
       <obj_property name="isExpanded"></obj_property>
    </wvobject>
-   <wvobject fp_name="/Input_tb/switch/\gen_ports[0].in_inst /inFSM/o_switch_req" type="logic">
-      <obj_property name="ElementShortName">o_switch_req</obj_property>
-      <obj_property name="ObjectShortName">o_switch_req</obj_property>
-   </wvobject>
-   <wvobject fp_name="/Input_tb/switch/\gen_ports[0].in_inst /inFSM/i_switch_ack" type="logic">
-      <obj_property name="ElementShortName">i_switch_ack</obj_property>
-      <obj_property name="ObjectShortName">i_switch_ack</obj_property>
-   </wvobject>
-   <wvobject fp_name="/Input_tb/switch/\gen_ports[0].in_inst /inFSM/d_port_from_mac" type="array">
-      <obj_property name="ElementShortName">d_port_from_mac[3:0]</obj_property>
-      <obj_property name="ObjectShortName">d_port_from_mac[3:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/Input_tb/switch/\gen_ports[0].crossbar_inst /i_r2s.flit" type="array">
-      <obj_property name="ElementShortName">.flit[7:0]</obj_property>
-      <obj_property name="ObjectShortName">.flit[7:0]</obj_property>
-   </wvobject>
    <wvobject fp_name="/Input_tb/switch/\gen_ports[0].in_inst /inFSM/mac_ack" type="logic">
       <obj_property name="ElementShortName">mac_ack</obj_property>
       <obj_property name="ObjectShortName">mac_ack</obj_property>
@@ -76,9 +60,30 @@
       <obj_property name="ElementShortName">i_packet_done[3:0]</obj_property>
       <obj_property name="ObjectShortName">i_packet_done[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/Input_tb/switch/\gen_ports[0].crossbar_inst /curr_fifo_status" type="array">
-      <obj_property name="ElementShortName">curr_fifo_status[3:0][2:0]</obj_property>
-      <obj_property name="ObjectShortName">curr_fifo_status[3:0][2:0]</obj_property>
+   <wvobject fp_name="/Input_tb/switch/out_req2" type="array">
+      <obj_property name="ElementShortName">out_req2[0:3][0:3]</obj_property>
+      <obj_property name="ObjectShortName">out_req2[0:3][0:3]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Input_tb/switch/out_ack2" type="array">
+      <obj_property name="ElementShortName">out_ack2[0:3][0:3]</obj_property>
+      <obj_property name="ObjectShortName">out_ack2[0:3][0:3]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="/Input_tb/switch/rx_data_arr" type="array">
+      <obj_property name="ElementShortName">rx_data_arr[0:3][7:0]</obj_property>
+      <obj_property name="ObjectShortName">rx_data_arr[0:3][7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Input_tb/switch/tx_data" type="array">
+      <obj_property name="ElementShortName">tx_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">tx_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Input_tb/switch/tx_ctrl" type="array">
+      <obj_property name="ElementShortName">tx_ctrl[3:0]</obj_property>
+      <obj_property name="ObjectShortName">tx_ctrl[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Input_tb/switch/\gen_ports[0].in_inst /INPUT_BUFFER/mem" type="array">
+      <obj_property name="ElementShortName">mem[2047:0][7:0]</obj_property>
+      <obj_property name="ObjectShortName">mem[2047:0][7:0]</obj_property>
       <obj_property name="isExpanded"></obj_property>
    </wvobject>
 </wave_config>

@@ -33,9 +33,14 @@ module InputUnit#(
     output   logic [3:0]s_port_for_mac,
     output  [DATA_IN_SIZE-1:0] out_data,
     output  logic mac_req,
-    output  [95:0] mac_address
+    output  [95:0] mac_address,
+    output sw_bus_t o_r2s,
+    output logic o_switch_req,
+    input logic i_switch_ack,
+    output logic [NUM_OF_PORTS-1:0] o_packet_done
     );
     
+   
     logic buffer_write;
     logic fetch_en = 0;
     logic buffer_full;
@@ -48,6 +53,7 @@ module InputUnit#(
     logic [11:0]length_out = '0;
     logic length_ack=0;
     
+    assign o_r2s.flit = buffer_odata;
     // address buffer
     logic addr_req=0;
     logic addr_ack=0;
@@ -107,7 +113,11 @@ module InputUnit#(
       .length_req(length_req),
       .length_ack(length_ack),
       .mac_ack(mac_ack),
-      .input_length(length_out)
+      .input_length(length_out),
+      .o_target_port(o_r2s.target_port),
+      .o_switch_req(o_switch_req),
+      .i_switch_ack(i_switch_ack),
+      .o_packet_done(o_packet_done)
     );
     
     SOF_EOF_ctrl SOF_EOF_ctrl_inst(

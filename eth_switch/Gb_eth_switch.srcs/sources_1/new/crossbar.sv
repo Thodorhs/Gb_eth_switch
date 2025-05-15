@@ -29,7 +29,7 @@ module crossbar
         input  logic  i_out_ack [NUM_OF_PORTS],
         input logic [NUM_OF_PORTS-1:0] i_packet_done,
         output logic o_switch_ack,
-        output logic  o_out_req[NUM_OF_PORTS:0],
+        output logic  o_out_req[NUM_OF_PORTS-1:0],
         output FLIT_t o_switch_data [NUM_OF_PORTS],
         output logic packet_done [NUM_OF_PORTS]
     );

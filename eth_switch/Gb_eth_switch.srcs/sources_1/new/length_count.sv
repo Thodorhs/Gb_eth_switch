@@ -60,8 +60,7 @@ module length_count(
     always_ff @(posedge clk or negedge reset_n) begin
         if (~reset_n) begin
              byte_counter <= 0;
-        end
-        if (rx_ctrl) begin
+        end else if (rx_ctrl) begin
             byte_counter <= byte_counter + 1;
         end else if (EOF == 0 && EOF_ff == 1) begin
             byte_counter = 0;
@@ -71,8 +70,7 @@ module length_count(
     always_ff @(posedge clk or negedge reset_n) begin
         if (~reset_n) begin
              w_en <= 0;
-        end
-        if (EOF == 1) begin
+        end else if (EOF == 1) begin
             w_en <= 1;
         end else begin
             w_en <= 0;
@@ -83,8 +81,7 @@ module length_count(
         if (~reset_n) begin
              r_en <= 0;
              length_ack <=0;
-        end
-        if (length_req) begin
+        end else if (length_req) begin
             r_en <= 1;
             length_ack <= 1;
         end else begin

@@ -69,7 +69,7 @@ typedef enum logic [3:0] {
         logic [3:0] port;
     } mac_table_entry_t;
 
-     typedef enum logic [2:0] {
+     typedef enum logic [3:0] {
     PORT0  = 3'd0,
     PORT1  = 3'd1,
     PORT2  = 3'd2,

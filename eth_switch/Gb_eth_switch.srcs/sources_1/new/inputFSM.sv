@@ -157,7 +157,7 @@ module inputFSM#(
         else begin
             curr_state <= next_state;
             curr_length_ff <= curr_length;
-            if(mac_ack) target_port <= d_port_from_mac;
+            if (mac_ack) target_port <= PORT_t'(d_port_from_mac);
             if(curr_state == IDLE) target_port <= NONE_PORT;
         end
         

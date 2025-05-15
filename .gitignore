@@ -41,3 +41,7 @@ eth_switch/Gb_eth_switch.sim/
 # Ignore Vivado auto-generated directories
 **/xsim.dir/
 **/xsim.ini
+
+# Ignore Vivado auto-generated files and directories
+eth_switch/Gb_eth_switch.gen/
+eth_switch/Gb_eth_switch.srcs/sources_1/bd/design_1/
